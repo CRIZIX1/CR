@@ -1,103 +1,104 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>CRIZIX</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#00c3ff" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(135deg, #000428, #004e92);
-      background-attachment: fixed;
-      background-size: cover;
       color: white;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 100vh;
-      justify-content: flex-start;
       padding: 40px 20px;
+      box-sizing: border-box;
     }
 
-    img.logo {
-      width: 150px;
-      height: 150px;
-      margin-bottom: 20px;
+    .logo {
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       box-shadow: 0 0 20px #00c3ff88;
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: 56px;
+      font-size: 42px;
       color: #00c3ff;
-      margin-bottom: 10px;
       text-shadow: 0 0 12px #00c3ff;
+      margin: 0;
     }
 
     p {
+      font-size: 20px;
+      color: #ccc;
       margin-bottom: 30px;
-      color: #dddddd;
-      font-size: 22px;
-      text-shadow: 0 0 5px #000;
     }
 
-    .container {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-      justify-content: center;
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      width: 100%;
+      max-width: 400px;
       margin-bottom: 40px;
     }
 
+    @media (min-width: 600px) {
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 800px;
+      }
+    }
+
     .card {
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0,0,0,0.5);
       border: 2px solid #00c3ff;
-      border-radius: 20px;
-      padding: 30px 50px;
+      border-radius: 16px;
+      padding: 20px;
+      font-size: 20px;
       cursor: pointer;
       transition: 0.3s;
-      font-size: 24px;
-      box-shadow: 0 0 25px #00c3ff66;
-      backdrop-filter: blur(10px);
-      color: white;
+      box-shadow: 0 0 15px #00c3ff66;
+      text-align: center;
     }
 
     .card:hover {
-      background: rgba(0, 70, 140, 0.8);
-      box-shadow: 0 0 40px #00c3ffcc;
-      transform: scale(1.07);
+      background: rgba(0, 70, 140, 0.7);
+      transform: scale(1.05);
     }
 
     .button {
       position: fixed;
-      padding: 14px 28px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-size: 18px;
+      bottom: 20px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 16px;
       font-weight: bold;
       display: flex;
       align-items: center;
-      gap: 10px;
-      z-index: 999;
-      box-shadow: 0 0 20px #00c3ff88;
-      color: white;
+      gap: 8px;
       cursor: pointer;
-    }
-
-    .install-button {
-      bottom: 20px;
-      left: 20px;
+      box-shadow: 0 0 15px #00c3ff88;
+      text-decoration: none;
+      color: white;
       background-color: #00c3ff;
+      z-index: 1000;
     }
 
-    .install-button:hover {
+    .button:hover {
       background-color: #0099cc;
     }
 
+    .install-button {
+      left: 20px;
+    }
+
     .discord-button {
-      bottom: 20px;
       right: 20px;
       background-color: #0099ff;
     }
@@ -111,15 +112,15 @@
     }
 
     .instruction-box {
-      max-width: 500px;
-      background: rgba(255,255,255,0.05);
-      padding: 20px;
-      border-radius: 14px;
-      text-align: center;
-      font-size: 18px;
-      color: #cccccc;
-      line-height: 1.7;
+      max-width: 600px;
+      background-color: rgba(255,255,255,0.05);
+      padding: 30px;
+      border-radius: 12px;
       box-shadow: 0 0 20px #00c3ff44;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #eee;
+      text-align: right;
     }
 
     .back-button {
@@ -144,49 +145,50 @@
 <body>
 
   <!-- الصفحة الرئيسية -->
-  <div id="mainPage">
-    <img src="logo.webp" alt="CRIZIX Logo" class="logo" />
+  <div id="main">
+    <img src="logo.webp" class="logo" alt="Logo">
     <h1>CRIZIX</h1>
     <p>تحميل دلتا و كرنل و كوكودس</p>
 
-    <div class="container">
-      <div class="card" onclick="window.location.href='https://shorturl.at/uICmd'">تحميل دلتا</div>
-      <div class="card" onclick="window.location.href='https://shorturl.at/utlPE'">تحميل كرنل</div>
-      <div class="card" onclick="window.location.href='https://shorturl.at/qQtXW'">تحميل كوكودس</div>
+    <div class="cards">
+      <div class="card" onclick="location.href='https://shorturl.at/uICmd'">تحميل دلتا</div>
+      <div class="card" onclick="location.href='https://shorturl.at/utlPE'">تحميل كرنل</div>
+      <div class="card" onclick="location.href='https://shorturl.at/qQtXW'">تحميل كوكودس</div>
     </div>
-
-    <div class="button install-button" onclick="showInstall()">
-      <img src="A67FB92B-8D4C-4652-855D-C3AAA8A6F3B7.png" alt="icon" width="24" height="24">
-      تثبيت تطبيق CRIZIX
-    </div>
-
-    <a href="https://discord.gg/crizix" class="button discord-button" target="_blank">
-      سيرفر الدسكورد
-    </a>
   </div>
 
   <!-- صفحة التعليمات -->
   <div id="installPage" class="hidden">
     <button class="back-button" onclick="showMain()">🔙 رجوع</button>
-    <h1>طريقة تثبيت تطبيق CRIZIX على iPhone</h1>
+    <h1>طريقة تثبيت تطبيق CRIZIX</h1>
     <div class="instruction-box">
-      1. افتح هذا الموقع باستخدام <strong>Safari</strong>.<br><br>
-      2. اضغط على زر <strong>المشاركة</strong> (📤) في أسفل الشاشة.<br><br>
-      3. اختر <strong>"إضافة إلى الشاشة الرئيسية" (Add to Home Screen)</strong>.<br><br>
+      1. افتح الموقع باستخدام <strong>Safari</strong> على iPhone.<br><br>
+      2. اضغط زر المشاركة (📤) في أسفل الشاشة.<br><br>
+      3. اختر <strong>"إضافة إلى الشاشة الرئيسية"</strong> (Add to Home Screen).<br><br>
       4. اضغط <strong>"إضافة"</strong>.<br><br>
-      مبروك 🎉 صار عندك CRIZIX كتطبيق على الشاشة!
+      ✅ صار عندك CRIZIX كتطبيق!
     </div>
   </div>
 
+  <!-- الأزرار -->
+  <a class="button install-button" onclick="showInstall()">
+    <img src="A67FB92B-8D4C-4652-855D-C3AAA8A6F3B7.png" alt="icon" width="20">
+    تثبيت التطبيق
+  </a>
+
+  <a class="button discord-button" href="https://discord.gg/crizix" target="_blank">
+    سيرفر الدسكورد
+  </a>
+
   <script>
     function showInstall() {
-      document.getElementById("mainPage").classList.add("hidden");
+      document.getElementById("main").classList.add("hidden");
       document.getElementById("installPage").classList.remove("hidden");
     }
 
     function showMain() {
       document.getElementById("installPage").classList.add("hidden");
-      document.getElementById("mainPage").classList.remove("hidden");
+      document.getElementById("main").classList.remove("hidden");
     }
   </script>
 </body>
